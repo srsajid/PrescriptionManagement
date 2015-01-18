@@ -1,0 +1,293 @@
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    background: #D8DBDF;
+    overflow: hidden;
+}
+#admin-panel-container {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.osms-navigation {
+    margin-top: 5px;
+}
+.osms-navigation li {
+    cursor: pointer;
+}
+.ribbon-menu-btn {
+    line-height: 2.5;
+    margin-right: 5px;
+}
+.ribbon-menu-btn-container button {
+    display: none;
+}
+/* Tab */
+#tabs {
+    border: none;
+    padding: 0;
+}
+
+ul.header-list {
+    background: #1199C4;
+    height: 99px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#tabs ul.header-list li {
+    width: 100px;
+    height: 60px;
+    margin: 0 0 0 25px;
+    top: 15px;
+    background: transparent;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: 0;
+}
+#tabs ul.header-list li:hover {
+    background: rgba(255,255,255,0.5);
+}
+#tabs ul.header-list li.ui-state-active {
+    background: rgba(255,255,255,.7);
+}
+#tabs ul.header-list li.ui-state-active:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 30%;
+    margin-top: 10px;
+    margin-left: 0;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #fff;
+    border-left: 15px solid transparent;
+}
+#tabs ul.header-list li.ui-state-active a, tabs ul.header-list li a:hover {
+    color: #000000;
+}
+#tabs ul.header-list li a {
+    padding: 0;
+    width: 100%;
+    height: 60px;
+    color: #ffffff;
+}
+#tabs ul.header-list li a .icon {
+    margin-top: 6px;
+}
+#tabs ul.header-list li a .icon:before {
+    content: "\2610";
+    font-family: 'Glyphicons Halflings';
+}
+#tabs ul.header-list li a div {
+    text-align: center;
+}
+.ui-tabs .ui-tabs-panel {
+    padding: 10px 0 0 0;
+    width: 100%;
+    min-height: 700px;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+}
+/* Paginator*/
+.footer .pagination {
+    float: right;
+    margin: 6px 20px 0 0;
+}
+.footer .item-per-page {
+    height: 35px;
+    width: 85px;
+    margin: 6px 0 0 20px;
+}
+
+/* Loader */
+.div-mask {
+    background-color : #BBBBBB;
+    opacity          : 0.6;
+    filter           : alpha(opacity=60);
+    text-align       : center;
+}
+.vertical-aligner {
+    display        : inline-block;
+    height         : 100%;
+    vertical-align : middle;
+}
+.loader {
+    display          : inline-block;
+    height           : 31px;
+    vertical-align   : middle;
+    width            : 31px;
+    background-image : url(../../resources/images/loader.gif);
+}
+.loading {
+    background-image: url(../../resources/images/loader.gif);
+    background-repeat:no-repeat;
+    background-color: #BBBBBB;
+    opacity: 0.6;
+    background-attachment:fixed;
+    background-position:center;
+    position: absolute;
+    filter: alpha(opacity=60);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+}
+/* edit popup*/
+.edit-popup-container {
+    min-height: 100px;
+}
+.create-edit-form {
+    margin-top: 30px;
+}
+.create-edit-form .formError{
+    left: 10px !important;
+
+}
+/* Tow side selection*/
+.two-column .column{
+    width: 50%;
+    min-height: 100px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.two-column .column .content{
+    width: 100%;
+    margin: 10px;
+}
+.glyphicon {
+    cursor: pointer;
+}
+
+.two-column table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.two-column td,.two-column th {
+    border: 1px solid #999;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.two-column td.action, .two-column th{
+    text-align: center;
+}
+.two-column .first-column td {
+    height: 30px;
+}
+table.srui-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table.srui-table th, table.srui-table td {
+    border: 1px solid #999;
+    padding: 0.5rem;
+    text-align: left;
+}
+table.srui-table th{
+    text-align: center;
+}
+
+td .td-full-width {
+    width: calc(100% - 12px);
+}
+
+td.editable:hover .edit {
+    display : inline;
+}
+td.editable .edit,
+td.editable.editing .edit {
+    display : none;
+    float   : right;
+}
+
+.selection-table-container table tr {
+    cursor: pointer;
+}
+.sells-item-table-container {
+    margin-top: 70px;
+}
+.sells-item-table-container .srui-table {
+    margin-top: 20px;
+}
+.admission-form img, .admission-form .file-input-wrapper {
+    width: 100%;
+}
+/*Tables*/
+body
+{
+    line-height: 1.6em;
+}
+.srui-table-a
+{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    background: #fff;
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+    clear: both;
+}
+.srui-table-a th
+{
+    font-size: 14px;
+    font-weight: normal;
+    color: #000;
+    padding: 10px 8px;
+    border-bottom: 2px solid #000;
+}
+.srui-table-a td
+{
+    color: #000;
+    padding: 9px 8px 0px 8px;
+}
+.srui-table-a tbody tr:hover td
+{
+    color: #000;
+}
+.srui-table-a  th
+{
+    font-size: 14px;
+    font-weight: normal;
+    color: #000;
+    padding: 10px 8px;
+    border-bottom: 2px solid #000;
+}
+.srui-table-a  td
+{
+    /*border-bottom: 1px solid #000;*/
+    color: #669;
+    padding: 6px 8px;
+}
+.srui-table-a tbody tr:hover td
+{
+    color: #009;
+}
+tr.selected {
+    background-color: aqua;
+}
+.last {
+    font-size: 14px;
+    font-weight: normal;
+    color: #000;
+    border-top: 2px solid #000;
+}
+.info-view {
+    margin : 5px 0;
+}
+.info-view label {
+    margin         : 0;
+    padding        : 0;
+    text-align     : left;
+    display        : inline-block;
+    *display       : inline;
+    zoom           : 1;
+    vertical-align : middle;
+    width          : 150px;
+    font-size      : 14px;
+    color          : #000;
+}
