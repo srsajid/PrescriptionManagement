@@ -47,42 +47,45 @@ class UserController extends \BaseController {
     }
 
     public function postSave() {
-        $user = null;
+        $admin = null;
         $inputs = Input::all();
         if($inputs["id"]) {
-            $user = Admin::find(intval($inputs["id"]));
+            $admin = Admin::find(intval($inputs["id"]));
         } else {
-            $user = new Admin();
+            $admin = new Admin();
         }
         $rules = array(
             'name' => 'required',
-            'username' => 'required|min:5|unique:users,username'.($user->user ? ",{$user->user->id}" : ""),
-            'email' => 'required|email|unique:admins,email'.($user->id ? ",{$user->id}" : ""),
+            'username' => 'required|min:5|unique:users,username'.($admin->user ? ",{$admin->user->id}" : ""),
+            'email' => 'required|email|unique:admins,email'.($admin->id ? ",{$admin->id}" : ""),
         );
-        if(!$user->id) {
+        if(!$admin->id) {
             $rules['password'] = 'required|min:8';
         }
         $validator = Validator::make($inputs, $rules);
         if($validator->fails()) {
             return array('status' => 'error', 'message' => $validator->messages()->all());
         }
-        if(!$user->id && strcmp($inputs["password"], $inputs["confirm_password"]) != 0) {
+        if(!$admin->id && strcmp($inputs["password"], $inputs["confirm_password"]) != 0) {
             return array('status' => 'error', 'message' => 'Password and confirm password did not match');
         }
-        $user->name = $inputs["name"];
-        $user->email = $inputs["email"];
-        DB::transaction(function() use ($user, $inputs) {
-            $user->save();
-            if($user->user == null) {
-                $user->user = new User();
-                $user->user->userable_type = "Admin";
+        $admin->name = $inputs["name"];
+        $admin->email = $inputs["email"];
+        DB::transaction(function() use ($admin, $inputs) {
+            $hasId = $admin->id != null;
+            $admin->save();
+            if($admin->user == null) {
+                $admin->user = new User();
+                $admin->user->userable_type = "Admin";
+                $admin->user->is_active = true;
             }
-            $user->user->username = $inputs["username"];
-            if(!$user->id) {
-                $user->user->password = Hash::make($inputs["password"]);
+            $admin->user->username = $inputs["username"];
+            if(!$hasId) {
+                $admin->user->password = Hash::make($inputs["password"]);
+
             }
-            $user->user->userable_id = $user->id;
-            $user->user->save();
+            $admin->user->userable_id = $admin->id;
+            $admin->user->save();
         });
         return array('status' => 'success', 'message' => "User has been created successfully");
     }

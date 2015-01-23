@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Free Extra offer</title>
+    <title>Prescription Management System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="css/validation/validationEngine.jquery.css" type="text/css"/>
@@ -48,7 +48,7 @@
                 <div id="tabs">
                     <ul class="header-list">
                         <li tab-id="prescription"><a href="<?php echo SR::$baseUrl ?>prescription/table-view"><div class="icon"></div><div class="head-title">Prescription</div></a></li>
-                        <li tab-id="profile"><a href="<?php echo SR::$baseUrl ?>doctor/profile"><div class="icon"></div><div class="head-title">Profile</div></a></li>
+<!--                        <li tab-id="profile"><a href="--><?php //echo SR::$baseUrl ?><!--doctor/profile"><div class="icon"></div><div class="head-title">Profile</div></a></li>-->
                     </ul>
                 </div>
             </div>

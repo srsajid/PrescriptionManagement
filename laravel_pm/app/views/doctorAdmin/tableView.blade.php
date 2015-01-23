@@ -1,7 +1,7 @@
 <div class="head">
     <nav class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand">Offers ({{$total}})</a>
+            <a class="navbar-brand">Doctors ({{$total}})</a>
         </div>
         <div class="navbar-form navbar-right" role="search">
             <div class="form-group">
