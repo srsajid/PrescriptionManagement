@@ -12,4 +12,8 @@ class Prescription extends Eloquent {
     public function items() {
         return $this->hasMany("PrescriptionItem");
     }
+
+    public function doctor() {
+        return $this->belongsTo("Doctor", "doctor_id");
+    }
 }

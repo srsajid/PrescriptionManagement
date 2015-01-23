@@ -42,13 +42,13 @@
         </div><div class="column last-column">
             <div class="patient-info">
                 <div class="col-sm-4">
-                    <input class="form-control validate[required]" name="name" type="text" placeholder="Name of Patient">
+                    <input class="form-control validate[required]" name="name" type="text" placeholder="Name of Patient" value="{{$prescription->patient_name}}">
                 </div>
                 <div class="col-sm-6">
-                    <input class="form-control validate[required]" name="address" type="text" placeholder="Address">
+                    <input class="form-control validate[required]" name="address" type="text" placeholder="Address" value="{{$prescription->patient_address}}">
                 </div>
                 <div class="col-sm-2">
-                    <input class="form-control validate[required]" name="age" type="text" placeholder="Age">
+                    <input class="form-control validate[required]" name="age" type="text" placeholder="Age" value="{{$prescription->patient_age}}">
                 </div>
             </div>
             <div class="content">
@@ -61,6 +61,18 @@
                         <th>Name</th>
                         <th></th>
                     </tr>
+                    @foreach($prescription->items as $item)
+                        <tr>
+                            <td>
+                                <div class="medicine">{{$item->name}}</div>
+                                <div class="description"><input class="form-control" name="description" value="{{$item->description}}"></div>
+                            </td>
+                            <td class="action">
+                                <span class="glyphicon glyphicon-remove"></span>
+                                <input type="hidden" name="items" value="{{$item->medicine_id}}">
+                            </td>
+                        </tr>
+                    @endforeach
                 </table>
             </div>
             <div class="custom-medicine">

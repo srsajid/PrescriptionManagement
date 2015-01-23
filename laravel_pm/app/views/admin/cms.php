@@ -50,7 +50,7 @@
             <div class="row body" style="margin-top: 20px">
                 <div id="tabs">
                     <ul class="header-list">
-                        <li tab-id="category"><a href="<?php echo SR::$baseUrl ?>categoryAdmin/table-view"><div class="icon"></div><div class="head-title">Category</div></a></li>
+                        <li tab-id="category" class="category"><a href="<?php echo SR::$baseUrl ?>categoryAdmin/table-view"><div class="icon"></div><div class="head-title">Category</div></a></li>
                         <li tab-id="medicine"><a href="<?php echo SR::$baseUrl ?>medicineAdmin/table-view"><div class="icon"></div><div class="head-title">Medicine</div></a></li>
                         <li tab-id="doctor"><a href="<?php echo SR::$baseUrl ?>doctorAdmin/table-view"><div class="icon"></div><div class="head-title">Doctor</div></a></li>
                         <li tab-id="user"><a href="<?php echo SR::$baseUrl ?>user/table-view"><div class="icon"></div><div class="head-title">User</div></a></li>

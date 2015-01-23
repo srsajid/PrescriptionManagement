@@ -77,8 +77,11 @@ ul.header-list {
     margin-top: 6px;
 }
 #tabs ul.header-list li a .icon:before {
-    content: "\2610";
+    content: "\e008";
     font-family: 'Glyphicons Halflings';
+}
+#tabs ul.header-list li.category a .icon:before {
+    content: "\e012";
 }
 #tabs ul.header-list li a div {
     text-align: center;

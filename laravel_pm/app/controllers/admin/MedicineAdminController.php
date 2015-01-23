@@ -67,6 +67,7 @@ class MedicineAdminController extends BaseController{
         $medicine->name = $inputs["name"];
         $medicine->code = $inputs["code"];
         $medicine->company = $inputs["company"];
+        $medicine->ingredients = $inputs["ingredients"];
         $medicine->category_id = $inputs["category_id"];
         $medicine->save();
         return array('status' => 'success', 'message' => "Medicine has been created successfully");

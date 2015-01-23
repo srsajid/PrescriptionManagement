@@ -58,11 +58,15 @@
         {
             color: #009;
         }
-        .last {
-            font-size: 14px;
-            font-weight: normal;
-            color: #000;
-            border-top: 2px solid #000;
+        .block {
+            display: inline-block;
+            width: 50%;
+        }
+        .block:last-child {
+            text-align: right;
+        }
+        label {
+            font-weight: bold;
         }
 
     </style>
@@ -77,10 +81,14 @@
             <address>
                 {{$prescription->doctor->address}}
             </address>
-            <label>Phone:</label><span class="phone">{{$prescription->doctor->phone}}</span>
+            <label>Phone:</label><span class="phone">{{$prescription->doctor->phone}}</span><br/>
             <label>Email:</label><span class="email">{{$prescription->doctor->email}}</span>
         </div>
     </div>
+    <label>Name: </label>{{$prescription->patient_name}} &nbsp; &nbsp;
+    <label>Age: </label>{{$prescription->patient_age}}
+    <hr/>
+
     <table id="hor-minimalist-a" summary="Doctor Prescription">
         <colgroup>
             <col style="width: 10%"/>
@@ -109,6 +117,6 @@
         </tbody>
     </table>
 </div>
-
+<script>print();</script>
 </body>
 </html>

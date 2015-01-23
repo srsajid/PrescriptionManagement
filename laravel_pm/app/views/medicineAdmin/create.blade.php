@@ -13,6 +13,12 @@
         </div>
     </div>
     <div class="form-group">
+        <label class="col-sm-3 control-label">Ingredients:</label>
+        <div class="col-sm-8">
+            <input class="form-control validate[required]" name="ingredients" value="{{$medicine->ingredients}}">
+        </div>
+    </div>
+    <div class="form-group">
         <label class="col-sm-3 control-label">Company:</label>
         <div class="col-sm-8">
             <input class="form-control validate[required]" name="company" value="{{$medicine->company}}">

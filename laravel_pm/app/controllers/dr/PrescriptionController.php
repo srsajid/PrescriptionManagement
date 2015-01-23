@@ -28,7 +28,7 @@ class PrescriptionController extends BaseController {
             $prescriptions = Prescription::take($max)->skip($offset)->orderBy('id', "ASC");
             $total = Prescription::count();
         }
-        $prescriptions = $prescriptions->get();
+        $prescriptions = $prescriptions->where("doctor_id", '=', Auth::user()->userable_id)->get();
         return View::make("prescription.tableView", array(
             'prescriptions' => $prescriptions,
             'total' => $total,
