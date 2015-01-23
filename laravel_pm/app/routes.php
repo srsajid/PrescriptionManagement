@@ -17,5 +17,5 @@ Route::group(array('before' => "admin"), function() {
 });
 Route::controller("prescription", "PrescriptionController");
 Route::get("test", function() {
-   return Hash::make("admin");
+   return Form::getSelectOption("s", "d", 10);
 });

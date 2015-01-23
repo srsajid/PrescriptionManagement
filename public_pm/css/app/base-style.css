@@ -149,12 +149,18 @@ ul.header-list {
 }
 /* Tow side selection*/
 .two-column .column{
-    width: 50%;
     min-height: 100px;
     display: inline-block;
     vertical-align: top;
+    padding: 0 10px 0 10px;
 }
 
+.two-column .first-column {
+    width: 40%;
+}
+.two-column .last-column {
+    width: 60%;
+}
 .two-column .column .content{
     width: 100%;
     margin: 10px;
@@ -173,7 +179,7 @@ ul.header-list {
     text-align: left;
 }
 
-.two-column td.action, .two-column th{
+.two-column td.action {
     text-align: center;
 }
 .two-column .first-column td {
@@ -238,12 +244,17 @@ body
     font-weight: normal;
     color: #000;
     padding: 10px 8px;
+    border-right: none;
+    border-left: none;
+    border-top: none;
     border-bottom: 2px solid #000;
 }
 .srui-table-a td
 {
     color: #000;
     padding: 9px 8px 0px 8px;
+    border-left: none;
+    border-right: none;
 }
 .srui-table-a tbody tr:hover td
 {
@@ -290,4 +301,9 @@ tr.selected {
     width          : 150px;
     font-size      : 14px;
     color          : #000;
+}
+
+/* dialog */
+.ui-dialog .ui-dialog-content {
+    border: none;
 }

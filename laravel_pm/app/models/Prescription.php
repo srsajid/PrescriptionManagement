@@ -9,7 +9,7 @@
 class Prescription extends Eloquent {
     protected $table = "prescriptions";
 
-    public function medicines() {
-        return $this->belongsToMany("Medicine", "prescription_medicine", "prescription_id", "medicine_id");
+    public function items() {
+        return $this->hasMany("PrescriptionItem");
     }
 }

@@ -8,12 +8,4 @@
 
 class Category extends Eloquent {
     public $timestamps = false;
-
-    public function offers() {
-        return $this->hasMany("Offer");
-    }
-
-    public function parent() {
-        return $this->belongsTo("category", "category_id");
-    }
-} 
+}

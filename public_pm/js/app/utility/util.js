@@ -22,6 +22,121 @@ window.dir = function() {
 }
 
 var util = {
+    twoSideSelection: function(container, leftTableUrl, fieldName){
+    var _self = this;
+    var leftPanel, rightPanel, leftTable, rightTable, leftTablePaginator, leftPanelContent;
+    var selected = [];
+    var globalFunc = {
+        afterSelect: function(row){},
+        beforeLoadLeftTable: function(params) {
+            if(leftTablePaginator) {
+                params.max = leftTablePaginator.attr("max");
+                params.offset = leftTablePaginator.attr("offset");
+            }
+        },
+        loadLeftTable: function() {
+            loadLeftTable();
+        }
+
+    }
+    function init() {
+        leftPanel = container.find(".first-column");
+        leftPanelContent = leftPanel.find(".content");
+        rightPanel = container.find(".last-column");
+        rightTable = container.find(".last-column.column table");
+    }
+    function loadLeftTable() {
+        leftPanel.loader();
+        var params = {};
+        globalFunc.beforeLoadLeftTable(params);
+        _self.ajax({
+            url: leftTableUrl,
+            data: params,
+            dataType: "html",
+            success: function(html) {
+                leftPanelContent.html(html);
+                initLeftTable();
+                leftPanel.loader(false);
+            }
+        })
+    }
+    function initLeftTable() {
+        leftTable = container.find(".first-column.column table");
+        leftTablePaginator = container.find(".pagination");
+        leftTablePaginator.addClass("pagination-sm");
+        leftTablePaginator.paginator();
+        var noOfRow = leftPanel.find("tr").length;
+        for(var i = 0; i < 11 - noOfRow; i++) {
+            leftTable.append('<tr><td></td><td></td></tr>')
+        }
+        checkedSelected();
+        bindLeftTableEvents();
+    }
+
+    function checkedSelected() {
+        leftTable.find("input[type=checkbox].selector").each(function() {
+            var $this = $(this);
+            var value = $this.attr("value");
+            var selected = rightTable.find("input[name=" + fieldName + "][value=" + value + "]");
+            if(selected.length) {
+                this.checked = true;
+            }
+        })
+    }
+
+    function bindLeftTableEvents() {
+        leftTable.find("input[type=checkbox].selector").on('change', function() {
+            var checked = this.checked;
+            var $this = $(this);
+            if(checked) {
+                selectItem($this)
+            } else {
+                deselectItem($this.attr("value"));
+            }
+        });
+        leftTablePaginator.on("paginator-click", function() {
+            loadLeftTable();
+        })
+    }
+
+    function selectItem(item) {
+        var name = item.parents("tr:eq(0)").find("td.name").text();
+        var value = item.attr("value");
+        var template = '<tr><td class="name">'+ name + '</td>' +
+            '<td class="action"><span class="glyphicon glyphicon-remove"></span>' +
+            '<input type="hidden" name="'+ fieldName +'" value="'+ value + '"></td></tr>';
+        template = $(template)
+        rightTable.append(template);
+        rightTableRowEvents(template);
+        globalFunc.afterSelect(template);
+    }
+
+    function deselectItem(item) {
+        var checkBox = leftTable.find("input[value="+ item +"].selector");
+        if(checkBox.length) {
+            checkBox[0].checked = false;
+        }
+        var selectedRow = rightTable.find("input[name="+ fieldName +"][value="+ item +"]").parents("tr:eq(0)");
+        selectedRow.remove();
+    }
+
+    function rightTableRowEvents(row) {
+        row.find(".glyphicon-remove").on("click", function() {
+            deselectItem(row.find("input[name="+fieldName+"]").val());
+        })
+    }
+    function bindRightTableEvents() {
+        rightTable.find("tr:gt(0)").each(function() {
+            rightTableRowEvents($(this))
+        })
+    }
+    container.loader();
+    init();
+    loadLeftTable();
+    container.loader(false);
+    bindRightTableEvents();
+    return globalFunc;
+},
     ajax: function(settings) {
         var defaults  = {
             dataType: 'html',
@@ -73,7 +188,8 @@ var util = {
                 effect: "explode",
                 duration: 600
             },
-            data: {}
+            data: {},
+            position: ["top", 50]
         }
         defaults = $.extend(defaults, config)
         var dom = $('<div class="edit-popup-container"></div>');
@@ -139,6 +255,7 @@ var util = {
         return dom
     },
     notify: function(message, type) {
+        message = message ? message : "Unexpected error occurred";
         if(type == "success") {
             alertify.success(message);
         } else {

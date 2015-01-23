@@ -31,6 +31,7 @@ class InitDatabase extends Migration {
 			$table->string("name");
 			$table->string("code");
 			$table->string("company");
+			$table->string("ingredients");
 			$table->integer("category_id")->unsigned();
 			$table->foreign("category_id")->references("id")->on("categories");
 			$table->timestamps();
@@ -40,14 +41,20 @@ class InitDatabase extends Migration {
 			$table->increments("id");
 			$table->string("patient_name");
 			$table->string("patient_address", 300);
-			$table->integer("patient_age")->unsigned();
+			$table->string("patient_age", 100);
 			$table->integer("doctor_id")->unsigned();
 			$table->foreign("doctor_id")->references("id")->on("doctors");
 			$table->timestamps();
 		});
-		Schema::create("prescription_medicine", function(Blueprint $table) {
+
+		Schema::create("prescription_items", function(Blueprint $table) {
+			$table->increments("id");
+			$table->string("name");
+			$table->string("description");
 			$table->integer("prescription_id")->unsigned();
-			$table->integer("medicine_id")->unsigned();
+			$table->foreign("prescription_id")->references("id")->on("prescriptions");
+			$table->integer("medicine_id")->unsigned()->nullable();
+			$table->foreign("medicine_id")->references("id")->on("medicines");
 		});
 	}
 
