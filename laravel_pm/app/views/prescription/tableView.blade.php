@@ -41,8 +41,8 @@
                     <button type="button" class="btn btn-default btn-xs action-menu" data-id="<?php echo $prescription->id; ?>" action="edit" title="Edit Prescription">
                         <span class="glyphicon glyphicon-pencil"></span>
                     </button>
-                     <button type="button" class="btn btn-default btn-xs action-menu" data-id="<?php echo $prescription->id; ?>" action="Print" title="Print Prescription">
-                        <span class="glyphicon glyphicon-print"></span>
+                     <button type="button" class="btn btn-default btn-xs" title="Print Prescription">
+                        <a target="_blank" href="{{SR::$baseUrl}}prescription/print?id={{$prescription->id;}}"><span class="glyphicon glyphicon-print"></span></a>
                     </button>
                  </td>
             </tr>
