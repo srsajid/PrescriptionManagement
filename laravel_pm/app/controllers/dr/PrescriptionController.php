@@ -23,10 +23,10 @@ class PrescriptionController extends BaseController {
         $total = 0;
         if (count($array) > 0) {
             $prescriptions = Prescription::whereRaw($query, $array)->take($max)->skip($offset);
-            $total = Prescription::whereRaw($query, $array)->count();
+            $total = Prescription::whereRaw($query, $array)->where("doctor_id", '=', Auth::user()->userable_id)->count();
         } else {
             $prescriptions = Prescription::take($max)->skip($offset);
-            $total = Prescription::count();
+            $total = Prescription::where("doctor_id", '=', Auth::user()->userable_id)->count();
         }
         $prescriptions = $prescriptions->where("doctor_id", '=', Auth::user()->userable_id)->orderBy('id', "DESC")->get();
         return View::make("prescription.tableView", array(

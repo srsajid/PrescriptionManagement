@@ -15,7 +15,6 @@ Route::group(array('before' => "admin"), function() {
     Route::controller("doctorAdmin", "DoctorAdminController");
     Route::controller("user", "UserController");
 });
-Route::controller("prescription", "PrescriptionController");
-Route::get("test", function() {
-   return Form::getSelectOption("s", "d", 10);
+Route::group(array('before' => "doctor"), function() {
+    Route::controller("prescription", "PrescriptionController");
 });
