@@ -32,6 +32,12 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-md-4">Brand Name:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" name="brand_name">
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-md-offset-8 col-md-4">
                         <button class="bg-success form-control" type="button">Search</button>
                     </div>

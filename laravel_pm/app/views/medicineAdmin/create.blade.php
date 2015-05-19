@@ -31,6 +31,24 @@
         </div>
     </div>
     <div class="form-group">
+        <label class="col-sm-3 control-label">Brand Name:</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="brand_name" value="{{$medicine->brand_name}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Pack Size:</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="pack_size" value="{{$medicine->pack_size}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Unit Price:</label>
+        <div class="col-sm-8">
+            <input class="form-control" name="unit_price" value="{{$medicine->unit_price}}">
+        </div>
+    </div>
+    <div class="form-group">
         <div class="col-sm-offset-8 col-sm-3">
             <button type="submit" class="form-control">Save</button>
         </div>

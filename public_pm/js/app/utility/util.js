@@ -67,7 +67,7 @@ var util = {
         leftTablePaginator.paginator();
         var noOfRow = leftPanel.find("tr").length;
         for(var i = 0; i < 11 - noOfRow; i++) {
-            leftTable.append('<tr><td></td><td></td></tr>')
+            leftTable.append('<tr><td></td><td></td><td></td><td></td></tr>')
         }
         checkedSelected();
         bindLeftTableEvents();

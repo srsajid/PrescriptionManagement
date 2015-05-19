@@ -58,7 +58,8 @@ class MedicineAdminController extends BaseController{
             $medicine = new Medicine();
         }
         $rules = array(
-            'name' => 'required|min:5|unique:categories,name'.($medicine->id ? ",$medicine->id" : "")
+            'name' => 'required|min:4|unique:categories,name'.($medicine->id ? ",$medicine->id" : ""),
+            'unit_price' => "numeric"
         );
         $validator = Validator::make($inputs, $rules);
         if($validator->fails()) {
@@ -69,6 +70,9 @@ class MedicineAdminController extends BaseController{
         $medicine->company = $inputs["company"];
         $medicine->ingredients = $inputs["ingredients"];
         $medicine->category_id = $inputs["category_id"];
+        $medicine->unit_price = $inputs["unit_price"];
+        $medicine->pack_size = $inputs["pack_size"];
+        $medicine->brand_name = $inputs["brand_name"];
         $medicine->save();
         return array('status' => 'success', 'message' => "Medicine has been created successfully");
     }

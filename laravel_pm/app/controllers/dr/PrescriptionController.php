@@ -51,6 +51,12 @@ class PrescriptionController extends BaseController {
             array_push($array, "%".$text."%");
             $flag = true;
         }
+        if(Input::get("brand_name")) {
+            $query = $query."brand_name Like ?";
+            $text = trim(Input::get("brand_name")) ;
+            array_push($array, "%".$text."%");
+            $flag = true;
+        }
         if(Input::get("category")) {
             $query = $flag ? $query." and " : $query;
             $query = $query."category_id = ?";
