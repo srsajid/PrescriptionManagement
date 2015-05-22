@@ -64,9 +64,9 @@ return array(
 		),
         'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-            'database'  => 'freextra_root',
-            'username'  => 'freextra_root',
+			'host'      => 'www.bdphysicians.com',
+            'database'  => 'sazmilov_pm',
+            'username'  => 'sazmilov_pm',
             'password'  => 'p@ssw0rd',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
