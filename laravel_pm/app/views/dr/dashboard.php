@@ -44,7 +44,7 @@
                     </button>
                 </div>
             </div>
-            <div class="row body" style="margin-top: 20px">
+            <div class="row body">
                 <div id="tabs">
                     <ul class="header-list">
                         <li tab-id="prescription"><a href="<?php echo SR::$baseUrl ?>prescription/table-view"><div class="icon"></div><div class="head-title">Prescription</div></a></li>

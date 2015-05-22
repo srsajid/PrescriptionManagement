@@ -47,7 +47,7 @@
                     </button>
                 </div>
             </div>
-            <div class="row body" style="margin-top: 20px">
+            <div class="row body">
                 <div id="tabs">
                     <ul class="header-list">
                         <li tab-id="category" class="category"><a href="<?php echo SR::$baseUrl ?>categoryAdmin/table-view"><div class="icon"></div><div class="head-title">Category</div></a></li>
