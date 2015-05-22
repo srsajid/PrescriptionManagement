@@ -7,5 +7,5 @@
  */
 
 class SR {
-    static public $baseUrl = "/PrescriptionManager/public_pm/";
+    static public $baseUrl = "/PrescriptionManager/public_html/";
 } 
